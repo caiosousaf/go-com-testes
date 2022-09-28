@@ -23,5 +23,14 @@ func TestOla(t *testing.T) {
         }
     })
 
+    t.Run("RetornarMundoQuandoNomeVazio", func(t *testing.T) {
+        resultado := Ola("", "portugues")
+        esperado := "Olá, mundo"
+
+        if resultado != esperado {
+            t.Errorf("resultado '%s', esperado '%s'", resultado, esperado)
+        }
+    })
+
     
 }
