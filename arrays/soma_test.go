@@ -1,0 +1,32 @@
+package arrays
+
+import "testing"
+
+func TestSoma(t *testing.T) {
+	numeros := []int{1, 2, 3, 4, 5}
+
+	resultado := Soma(numeros)
+	esperado := 15
+
+	if esperado != resultado {
+		t.Errorf("resultado %d, esperado %d, dado %v", resultado, esperado, numeros)
+	}
+
+	t.Run("soma-2", func(t *testing.T) {
+		resultado := Soma(numeros)
+		if esperado != resultado {
+			t.Errorf("resultado %d, esperado %d, dado %v", resultado, esperado, numeros)
+		}
+	})
+
+	t.Run("coleção de qualquer tamanho", func(t *testing.T) {
+        numeros := []int{1, 2, 3}
+
+        resultado := Soma(numeros)
+        esperado := 6
+
+        if resultado != esperado {
+            t.Errorf("resultado %d, esperado %d, dado %v", resultado, esperado, numeros)
+        }
+    })
+}
