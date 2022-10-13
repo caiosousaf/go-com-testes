@@ -59,6 +59,13 @@ func TestSomaTodoOResto(t *testing.T) {
 		verificaSomas(t,resultado, esperado)
 	})
 
+	t.Run("Faz-Soma-Slices-2", func(t *testing.T) {
+		resultado := SomaTodoOResto([]int{1,2}, []int{3, 4, 5, 6})
+		esperado := []int{2, 15}
+	
+		verificaSomas(t,resultado, esperado)
+	})
+
 	t.Run("soma-slices-vazio", func(t *testing.T) {
 		resultado := SomaTodoOResto([]int{}, []int{3, 4, 5})
         esperado := []int{0, 9}
