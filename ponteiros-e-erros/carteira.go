@@ -1,6 +1,9 @@
 package ponteiroseerros
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Bitcoin int
 
@@ -25,6 +28,13 @@ func (c *Carteira) Saldo() Bitcoin  {
     return c.saldo
 }
 
-func (c *Carteira) Retirar(quantidade Bitcoin) {
-    c.saldo -= quantidade
+var ErroSaldoInsuficiente = errors.New("não é possível retirar: saldo insuficiente")
+
+func (c *Carteira) Retirar(quantidade Bitcoin) error {
+    if quantidade > c.saldo {
+        return ErroSaldoInsuficiente
+    }
+
+    c.saldo -= quantidade 
+    return nil
 }
