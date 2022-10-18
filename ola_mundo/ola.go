@@ -1,4 +1,4 @@
-package main
+package olamundo
 
 
 func Ola(nome, idioma string) string {
